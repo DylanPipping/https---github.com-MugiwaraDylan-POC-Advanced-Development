@@ -1,0 +1,695 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+body {
+    background-color: grey;
+    margin: 0;
+}
+
+.new-body {
+    background-color: rgb(236, 236, 236);
+    font-family: 'Concert One', sans-serif;
+}
+
+.topMenu {
+    overflow: hidden;
+    background-color: white;
+}
+
+.topMenu .logo-container {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 0 40px;
+}
+
+.topMenu .search-container {
+    margin: auto;
+    width: 1000px;
+}
+
+.topMenu .search-container input[type=text] {
+    padding: 6px;
+    margin-top: 20px;
+    width: 700px;
+}
+
+#myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+#myUL li a {
+    border: 1px solid #ddd;
+    margin-top: -1px;
+    /* Prevent double borders */
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block
+}
+
+.sideBar {
+    height: 100%;
+    width: 85px;
+    position: fixed;
+    z-index: 1;
+    margin-top: 0;
+    left: 0;
+    background-color: #ffffff;
+    transition: 0.5s;
+    overflow-x: hidden;
+    padding-top: 40px;
+    white-space: nowrap;
+}
+
+.sideBar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sideBar a:hover {
+    color: #000000;
+}
+
+.material-icons,
+.icon-text {
+    vertical-align: middle;
+}
+
+.material-icons {
+    padding-bottom: 3px;
+    margin-right: 30px;
+}
+
+main .sideBar {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    padding: 16px;
+    margin-left: 85px;
+    transition: margin-left 0.5s;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 100%;
+}
+
+.column {
+    float: left;
+    width: 20%;
+    padding: 5px 30px;
+}
+
+.row {
+    margin: 0 -5px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    opacity: 0.3;
+}
+
+.card:hover .middle {
+    opacity: 1;
+}
+
+.card-container {
+    padding: 2px 6px;
+}
+
+.center-div {
+    margin: auto;
+}
+
+
+/*main section*/
+
+#main-spec {
+    display: block;
+}
+
+.poc-image {
+    background-color: #aaa;
+    width: 60%;
+    padding: 20px;
+}
+
+.img-container {
+    float: left;
+    position: relative;
+    width: 32%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.img-container1 {
+    float: left;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+    width: 31%;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 5px;
+}
+
+
+/* Clearfix (clear floats) */
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+/*modal video*/
+
+.image-container .btn {
+    position: absolute;
+    top: 65%;
+    left: 52.5%;
+    transform: translate(-75%, -25%);
+    -ms-transform: translate(-75%, -25%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+button {
+    background-color: #47a386;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 14px;
+    padding: 10px 25px;
+}
+
+.modal-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal-container.show {
+    pointer-events: auto;
+    opacity: 1;
+    z-index: 2;
+}
+
+.modal {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.modal h1 {
+    margin: 0;
+}
+
+.modal video {
+    width: 400px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+/*modal images*/
+
+#open {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#open:hover {
+    opacity: 0.7;
+}
+
+.modal-image {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 1000px;
+    max-width: 100%;
+    text-align: center;
+}
+
+#close {
+    cursor: pointer;
+}
+
+
+/*tab gallery*/
+
+
+/* The grid: Four equal columns that floats next to each other */
+
+.img-grid.column {
+    float: left;
+    width: 25%;
+    padding: 20px;
+}
+
+
+/* Style the images inside the grid */
+
+.img-grid.column img {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.img-grid.column img:hover {
+    opacity: 1;
+}
+
+
+/* Clear floats after the columns */
+
+.img-grid.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* The expanding image container (positioning is needed to position the close button and the text) */
+
+.img-grid.container {
+    position: relative;
+    display: none;
+}
+
+
+/* Expanding image text */
+
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+
+/* Closable button inside the image */
+
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: black;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+
+/*Responsiveness*/
+
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+    .sidebar a {
+        font-size: 18px;
+    }
+}
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 500px) {
+    .column {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+    body {
+        background-color: grey;
+        margin: 0;
+    }
+    .new-body {
+        background-color: rgb(236, 236, 236);
+        font-family: 'Concert One', sans-serif;
+    }
+    .topMenu {
+        overflow: hidden;
+        background-color: white;
+    }
+    .topMenu .logo-container {
+        float: left;
+        display: block;
+        text-align: center;
+        padding: 0 40px;
+    }
+    .topMenu .search-container {
+        margin: auto;
+        width: 1000px;
+    }
+    .topMenu .search-container input[type=text] {
+        padding: 6px;
+        margin-top: 20px;
+        width: 700px;
+    }
+    #myUL {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: none;
+    }
+    #myUL li a {
+        border: 1px solid #ddd;
+        margin-top: -1px;
+        /* Prevent double borders */
+        background-color: #f6f6f6;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        color: black;
+        display: block
+    }
+    .sideBar {
+        height: 100%;
+        width: 85px;
+        position: fixed;
+        z-index: 1;
+        margin-top: 0;
+        left: 0;
+        background-color: #ffffff;
+        transition: 0.5s;
+        overflow-x: hidden;
+        padding-top: 40px;
+        white-space: nowrap;
+    }
+    .sideBar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+    }
+    .sideBar a:hover {
+        color: #000000;
+    }
+    .material-icons,
+    .icon-text {
+        vertical-align: middle;
+    }
+    .material-icons {
+        padding-bottom: 3px;
+        margin-right: 30px;
+    }
+    main .sideBar {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    #main {
+        padding: 16px;
+        margin-left: 85px;
+        transition: margin-left 0.5s;
+    }
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        width: 100%;
+    }
+    .column {
+        float: left;
+        width: 20%;
+        padding: 5px 30px;
+    }
+    .row {
+        margin: 0 -5px;
+    }
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        opacity: 0.3;
+    }
+    .card:hover .middle {
+        opacity: 1;
+    }
+    .card-container {
+        padding: 2px 6px;
+    }
+    .center-div {
+        margin: auto;
+    }
+    /*main section*/
+    #main-spec {
+        display: block;
+    }
+    .poc-image {
+        background-color: #aaa;
+        width: 60%;
+        padding: 20px;
+    }
+    .img-container {
+        float: left;
+        position: relative;
+        width: 32%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+    .img-container1 {
+        float: left;
+        position: relative;
+        cursor: pointer;
+        z-index: 2;
+        width: 31%;
+        padding: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .column {
+        float: left;
+        width: 25%;
+        padding: 5px;
+    }
+    /* Clearfix (clear floats) */
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    /*modal video*/
+    .image-container .btn {
+        position: absolute;
+        top: 65%;
+        left: 52.5%;
+        transform: translate(-75%, -25%);
+        -ms-transform: translate(-75%, -25%);
+        background-color: #555;
+        color: white;
+        font-size: 16px;
+        padding: 12px 24px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+    }
+    button {
+        background-color: #47a386;
+        border: 0;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        color: #fff;
+        font-size: 14px;
+        padding: 10px 25px;
+    }
+    .modal-container {
+        background-color: rgba(0, 0, 0, 0.3);
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+    }
+    .modal-container.show {
+        pointer-events: auto;
+        opacity: 1;
+        z-index: 2;
+    }
+    .modal {
+        background-color: white;
+        border-radius: 5px;
+        padding: 20px 30px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        width: 500px;
+        max-width: 100%;
+        text-align: center;
+    }
+    .modal h1 {
+        margin: 0;
+    }
+    .modal video {
+        width: 400px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    /*modal images*/
+    #open {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    #open:hover {
+        opacity: 0.7;
+    }
+    .modal-image {
+        background-color: white;
+        border-radius: 5px;
+        padding: 20px 30px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        width: 1000px;
+        max-width: 100%;
+        text-align: center;
+    }
+    #close {
+        cursor: pointer;
+    }
+    /*tab gallery*/
+    /* The grid: Four equal columns that floats next to each other */
+    .img-grid.column {
+        float: left;
+        width: 25%;
+        padding: 20px;
+    }
+    /* Style the images inside the grid */
+    .img-grid.column img {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+    .img-grid.column img:hover {
+        opacity: 1;
+    }
+    /* Clear floats after the columns */
+    .img-grid.row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* The expanding image container (positioning is needed to position the close button and the text) */
+    .img-grid.container {
+        position: relative;
+        display: none;
+    }
+    /* Expanding image text */
+    #imgtext {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        color: white;
+        font-size: 20px;
+    }
+    /* Closable button inside the image */
+    .closebtn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        color: black;
+        font-size: 35px;
+        cursor: pointer;
+    }
+    /*Responsiveness*/
+    @media screen and (max-height: 450px) {
+        .sidebar {
+            padding-top: 15px;
+        }
+        .sidebar a {
+            font-size: 18px;
+        }
+    }
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 500px) {
+        .column {
+            width: 100%;
+        }
+    }
+    @media only screen and (max-width: 700px) {
+        .modal-content {
+            width: 100%;
+        }
+    }
+}
