@@ -3,6 +3,7 @@ var demo = new Vue({
     data: {
         searchString: "",
 
+
         // The data model. These items would normally be requested via AJAX,
         // but are hardcoded here for simplicity.
 
@@ -24,6 +25,7 @@ var demo = new Vue({
 
         ]
     },
+
     computed: {
         // A computed property that holds only those articles that match the searchString.
         filteredArticles: function() {
@@ -40,7 +42,6 @@ var demo = new Vue({
 
             articles_array = articles_array.filter(function(item) {
                 if (item.title.toLowerCase().indexOf(searchString) !== -1) {
-                    //document.getElementsByTagName("li").style.opacity == "1";//
                     return item;
                 }
             })
